@@ -77,10 +77,7 @@
         myCOMMA: myCOMMA {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp LA(LG(LANGUAGE_2))>,
-                <&macro_wait_time 20>,
-                <&kp LG(COMMA)>;
+            bindings = <&kp LANGUAGE_2>, <&macro_wait_time 20>, <&kp LG(COMMA)>;
 
             label = "MYCOMMA";
         };
