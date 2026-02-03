@@ -107,8 +107,6 @@
 &mt LEFT_SHIFT Z  &kp X   &kp C           &kp V         &kp B         &kp LEFT_BRACKET          &kp RIGHT_BRACKET        &kp SEMICOLON  &kp N  &kp M    &kp COMMA  &mt RIGHT_SHIFT PERIOD
 &kp LCTRL         &tog 4  &kp UNDERSCORE  &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE                 &lt 2 MINUS              &lt 3 SPACE                               &kp SLASH
             >;
-
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 
         FUNCTION {
