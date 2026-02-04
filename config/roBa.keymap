@@ -4,8 +4,9 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
-    flavor = "balanced";
-    quick-tap-ms = <0>;
+    flavor = "tap-preferred";    // 文字入力を優先
+    tapping-term-ms = <170>;     // 判定時間を200msから短縮
+    quick-tap-ms = <150>;        // AAなどの連続入力を可能に
 };
 
 &trackball {
@@ -74,13 +75,12 @@
             label = "WINDOW_SLIDE";
         };
 
-        myCOMMA: myCOMMA {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2>, <&macro_wait_time 20>, <&kp LG(COMMA)>;
-
-            label = "MYCOMMA";
-        };
+       myCOMMA: myCOMMA {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LANGUAGE_2>, <&macro_wait_time 15>, <&kp COMMA>;
+    label = "MYCOMMA";
+};
     };
 
     behaviors {
