@@ -32,12 +32,12 @@
 
         tab {
             bindings = <&kp TAB>;
-            key-positions = <11 12>;
+            key-positions = <12 13>;
         };
 
         shift_tab {
             bindings = <&kp LS(TAB)>;
-            key-positions = <12 13>;
+            key-positions = <12 11>;
         };
 
         double_quotation {
@@ -59,7 +59,13 @@
 
         question {
             bindings = <&kp SLASH>;
-            key-positions = <33 32>;
+            key-positions = <32 31>;
+            layers = <0>;
+        };
+
+        under {
+            bindings = <&myUnder>;
+            key-positions = <30 31>;
             layers = <0>;
         };
     };
