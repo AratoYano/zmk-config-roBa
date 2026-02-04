@@ -86,7 +86,7 @@
         myUnder: myUnder {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANG2>, <&macro_wait_time 15>, <&kp UNDER>;
+            bindings = <&kp LANGUAGE_2>, <&macro_wait_time 15>, <&kp UNDER>;
 
             label = "MYUNDER";
         };
