@@ -4,9 +4,22 @@
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
-    flavor = "tap-preferred";    // 文字入力を優先
-    tapping-term-ms = <170>;     // 判定時間を200msから短縮
-    quick-tap-ms = <150>;        // AAなどの連続入力を可能に
+    flavor = "tap-preferred";
+    tapping-term-ms = <220>;     // 少し長めの220msに設定（保持しても文字になりやすくする）
+    quick-tap-ms = <150>;        // 連続入力はしやすく維持
+    retro-tap;                   // 離した瞬間に文字を出す「お守り」
+};
+
+&lt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <220>;     // mtと同じく長めに設定
+    quick-tap-ms = <150>;
+};
+
+combos {
+    compatible = "zmk,combos";
+    timeout-ms = <30>;           // 同時押しと判定する時間を短く制限
+    // ...
 };
 
 &trackball {
