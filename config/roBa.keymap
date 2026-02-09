@@ -68,6 +68,11 @@
             key-positions = <30 31>;
             layers = <0>;
         };
+
+        semicoron {
+            bindings = <&kp SEMICOLON>;
+            key-positions = <20 21>;
+        };
     };
 
     macros {
