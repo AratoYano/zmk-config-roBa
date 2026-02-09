@@ -5,43 +5,22 @@
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <220>;     // 少し長めの220msに設定（保持しても文字になりやすくする）
-    quick-tap-ms = <150>;        // 連続入力はしやすく維持
-    retro-tap;                   // 離した瞬間に文字を出す「お守り」
-};
-
-&lt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <220>;     // mtと同じく長めに設定
+    tapping-term-ms = <220>;     // 運指に合わせて長めに設定
     quick-tap-ms = <150>;
+    retro-tap;                   // 離した瞬間に文字を出す
 };
 
-combos {
-    compatible = "zmk,combos";
-    timeout-ms = <30>;           // 同時押しと判定する時間を短く制限
-    // ...
-};
+/* ここに &lt の設定を追加する場合は、以下の behaviors 内に書く必要があります */
 
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <5>;
-
-    // arrows {
-    //     layers = <3>;
-    //     bindings =
-    //         <&kp RIGHT_ARROW>,
-    //         <&kp LEFT_ARROW>,
-    //         <&kp UP_ARROW>,
-    //         <&kp DOWN_ARROW>;
-    //     tick = <10>;
-    //     wait-ms = <5>;
-    //     tap-ms = <5>;
-    // };
 };
 
 / {
     combos {
         compatible = "zmk,combos";
+        timeout-ms = <30>;       // 同時押し判定をタイトにする
 
         tab {
             bindings = <&kp TAB>;
@@ -103,7 +82,6 @@ combos {
                 <&kp LA(LC(LG(RIGHT_ARROW)))>,
                 <&macro_wait_time 50>,
                 <&kp LC(LA(RET))>;
-
             label = "WINDOW_SLIDE";
         };
 
@@ -111,7 +89,6 @@ combos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LANGUAGE_2>, <&macro_wait_time 15>, <&kp COMMA>;
-
             label = "MYCOMMA";
         };
 
@@ -119,7 +96,6 @@ combos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LANGUAGE_2>, <&macro_wait_time 15>, <&kp UNDER>;
-
             label = "MYUNDER";
         };
 
@@ -139,15 +115,23 @@ combos {
     };
 
     behaviors {
+        /* Kキーなどの Layer-Tap 用の設定をここに集約します */
+        &lt {
+            flavor = "tap-preferred";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <150>;
+        };
+
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
     };
+
+    /* この後に keymap { ... }; が続く */
 
     keymap {
         compatible = "zmk,keymap";
