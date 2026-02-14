@@ -137,10 +137,13 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 他のキーが押されたら即座にShift、そうでなければタップを優先 */
-            flavor = "tap-unless-interrupted"; 
-            tapping-term-ms = <200>;    // Aキーに近い200msに戻してタイピングを安定させる
+            /* 離した時の判定を優先し、タイピングを安定させる */
+            flavor = "balanced"; 
+            /* 判定時間をあえて少し長めの「250ms」に設定 */
+            tapping-term-ms = <250>; 
             quick-tap-ms = <150>;
+            /* 重要：マウス操作（クリックやドラッグ）をホールドとして即時判定させる設定 */
+            hold-trigger-key-positions = <40 41>; // マウスボタンやトラックボールに関連する位置を指定
             bindings = <&kp>, <&kp>;
         };
     };
