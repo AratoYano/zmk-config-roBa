@@ -137,8 +137,9 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            flavor = "hold-preferred";    // ホールド（Shift）を優先
-            tapping-term-ms = <150>;      // Shiftとして使いたいので短めに設定
+            /* 他のキーが押されたら即座にShift、そうでなければタップを優先 */
+            flavor = "tap-unless-interrupted"; 
+            tapping-term-ms = <200>;    // Aキーに近い200msに戻してタイピングを安定させる
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
