@@ -137,13 +137,19 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 離した時の判定を優先し、タイピングを安定させる */
-            flavor = "balanced"; 
-            /* 判定時間をあえて少し長めの「250ms」に設定 */
-            tapping-term-ms = <250>; 
+            flavor = "balanced";
+            tapping-term-ms = <200>;
             quick-tap-ms = <150>;
-            /* 重要：マウス操作（クリックやドラッグ）をホールドとして即時判定させる設定 */
-            hold-trigger-key-positions = <40 41>; // マウスボタンやトラックボールに関連する位置を指定
+            /* 右手側の全キー番号 + トラックボールのクリック(40,41付近)を指定 */
+            hold-trigger-key-positions = <
+                5 6 7 8 9
+                15 16 17 18 19
+                25 26 27 28 29
+                35 36 37 38 39
+                40 41 42 43 44
+            >;
+            /* 指定したキーが「離された時」にも判定を行う（より確実にする設定） */
+            hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
         };
     };
