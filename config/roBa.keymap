@@ -137,18 +137,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 「割り込み（右手入力）」があっても、指定時間内ならタップを優先する */
-            flavor = "tap-unless-interrupted"; 
-            tapping-term-ms = <150>;    // 200から150に短縮（ドラッグの反応を稼ぐ）
-            quick-tap-ms = <150>;
-            hold-trigger-key-positions = <
-                5 6 7 8 9
-                15 16 17 18 19
-                25 26 27 28 29
-                35 36 37 38 39
-                40 41 42 43 44
-            >;
-            hold-trigger-on-release;
+            /* 「指を離した時」の判定を最優先にする。これでzo/ziの誤爆を防ぎます */
+            flavor = "balanced"; 
+            /* 判定時間を「280ms」に少し伸ばす。タイピングにさらに余裕を持たせます */
+            tapping-term-ms = <280>; 
+            /* 連続してZを打つ時の誤作動を防ぐ */
+            quick-tap-ms = <175>;
+            /* 重要：マウスボタン（ドラッグ）だけは「押した瞬間」にShiftを確定させる */
+            hold-trigger-key-positions = <40 41>; 
+            /* これを追加：もし判定に迷ったら必ずタップ(z)を出すお守り */
+            retro-tap;
             bindings = <&kp>, <&kp>;
         };
     };
