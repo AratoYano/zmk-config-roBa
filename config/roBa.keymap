@@ -148,8 +148,8 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <0>; // 以前の設定とここを変えます
-            /* 重要：前のキー入力との間隔を見て、タイピング中ならホールドを無効化する */
+            quick-tap-ms = <0>; 
+            /* プロパティ名が正しいか再確認しました */
             global-quick-tap-ms = <150>; 
             bindings = <&kp>, <&kp>;
         };
