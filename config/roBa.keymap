@@ -142,27 +142,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
-
-        // 既存の lt_to_layer_0 の下などに追加
-
-        z_mt: z_mt {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Z_MOD_TAP";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <230>;     // 以前の250msより少し短くし、後出しShiftの反応を速める
-            quick-tap-ms = <150>;
-            hold-trigger-key-positions = <40 41>;
-
-            /* これを追加：高速タイピング中の誤爆を文脈で防ぐ */
-
-            require-prior-idle-ms = <125>;
-
-            /* 念のためのお守り：離した時に必ずzを出す */
-
-            retro-tap;
-            bindings = <&kp>, <&kp>;
-        };
     };
 
     keymap {
