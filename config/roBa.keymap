@@ -137,15 +137,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 「ホールド」を優先するフレーバーに変更。これが後出しShiftに効きます */
-            flavor = "hold-preferred"; 
-            /* 判定時間を「300ms」とかなり長めに設定。
-               これにより、高速タイピング中のZは「タップ」として扱われやすくなります */
+            /* 離した時の判定を優先。これが「ざじずぜぞ」を守る最強のフレーバーです */
+            flavor = "balanced"; 
+            /* タイピングを守るため、判定時間を「300ms」まで伸ばします */
             tapping-term-ms = <300>; 
+            /* 連続入力の誤爆を防ぐ */
             quick-tap-ms = <150>;
-            /* マウスボタンのトリガーは残しつつ、300msの猶予でタイピングを守ります */
-            hold-trigger-key-positions = <40 41>; 
-            /* 判定に迷った時、離した瞬間に必ずzを出す。タイピングミスの救世主です */
+            /* マウスボタン（40 41）が「離された時」にも判定を走らせる設定を追加 */
+            hold-trigger-key-positions = <40 41>;
+            hold-trigger-on-release;
+            /* 判定に迷ったら必ずタップ(z)を出すお守り */
             retro-tap;
             bindings = <&kp>, <&kp>;
         };
