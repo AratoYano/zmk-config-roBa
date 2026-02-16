@@ -137,10 +137,10 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
+            /* 「割り込み（右手入力）」があっても、指定時間内ならタップを優先する */
+            flavor = "tap-unless-interrupted"; 
+            tapping-term-ms = <150>;    // 200から150に短縮（ドラッグの反応を稼ぐ）
             quick-tap-ms = <150>;
-            /* 右手側の全キー番号 + トラックボールのクリック(40,41付近)を指定 */
             hold-trigger-key-positions = <
                 5 6 7 8 9
                 15 16 17 18 19
@@ -148,7 +148,6 @@
                 35 36 37 38 39
                 40 41 42 43 44
             >;
-            /* 指定したキーが「離された時」にも判定を行う（より確実にする設定） */
             hold-trigger-on-release;
             bindings = <&kp>, <&kp>;
         };
