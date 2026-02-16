@@ -137,16 +137,13 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 離した時の判定を優先。これが「ざじずぜぞ」を守る最強のフレーバーです */
             flavor = "balanced"; 
-            /* タイピングを守るため、判定時間を「300ms」まで伸ばします */
-            tapping-term-ms = <300>; 
-            /* 連続入力の誤爆を防ぐ */
+            tapping-term-ms = <230>;     // 以前の250msより少し短くし、後出しShiftの反応を速める
             quick-tap-ms = <150>;
-            /* マウスボタン（40 41）が「離された時」にも判定を走らせる設定を追加 */
             hold-trigger-key-positions = <40 41>;
-            hold-trigger-on-release;
-            /* 判定に迷ったら必ずタップ(z)を出すお守り */
+            /* これを追加：高速タイピング中の誤爆を文脈で防ぐ */
+            require-prior-idle-ms = <125>; 
+            /* 念のためのお守り：離した時に必ずzを出す */
             retro-tap;
             bindings = <&kp>, <&kp>;
         };
