@@ -137,15 +137,17 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 「指を離した時」の判定を最優先にする。これでzo/ziの誤爆を防ぎます */
+            /* 指を離したタイミングで判定。これで高速なZi, Zu, Zoを守ります */
             flavor = "balanced"; 
-            /* 判定時間を「280ms」に少し伸ばす。タイピングにさらに余裕を持たせます */
-            tapping-term-ms = <280>; 
-            /* 連続してZを打つ時の誤作動を防ぐ */
-            quick-tap-ms = <175>;
-            /* 重要：マウスボタン（ドラッグ）だけは「押した瞬間」にShiftを確定させる */
+            /* 判定時間を「220ms」に設定。
+               左手のみの遅い入力(Za, Ze)でもShift化せず、
+               かつIllustratorで220ms以上押し込めば確実にShiftになる絶妙なラインです */
+            tapping-term-ms = <220>; 
+            /* 連続入力(zzなど)の誤爆を防ぐ */
+            quick-tap-ms = <150>;
+            /* Illustrator対策：トラックボールのクリック時のみ、時間を待たずにShift確定 */
             hold-trigger-key-positions = <40 41>; 
-            /* これを追加：もし判定に迷ったら必ずタップ(z)を出すお守り */
+            /* お守り：判定に迷ったら必ずタップ(z)を出力 */
             retro-tap;
             bindings = <&kp>, <&kp>;
         };
