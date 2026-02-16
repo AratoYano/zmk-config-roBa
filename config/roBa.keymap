@@ -71,6 +71,16 @@
             bindings = <&kp LS(SEMICOLON)>;
             key-positions = <20 21>;
         };
+
+        left_shift {
+            bindings = <&kp LEFT_SHIFT>;
+            key-positions = <22 23>;
+        };
+
+        left_ctl {
+            bindings = <&kp LCTRL>;
+            key-positions = <10 11>;
+        };
     };
 
     macros {
@@ -132,18 +142,24 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
         // 既存の lt_to_layer_0 の下などに追加
+
         z_mt: z_mt {
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            flavor = "balanced"; 
+            flavor = "balanced";
             tapping-term-ms = <230>;     // 以前の250msより少し短くし、後出しShiftの反応を速める
             quick-tap-ms = <150>;
             hold-trigger-key-positions = <40 41>;
+
             /* これを追加：高速タイピング中の誤爆を文脈で防ぐ */
-            require-prior-idle-ms = <125>; 
+
+            require-prior-idle-ms = <125>;
+
             /* 念のためのお守り：離した時に必ずzを出す */
+
             retro-tap;
             bindings = <&kp>, <&kp>;
         };
@@ -154,10 +170,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W   &kp E      &kp R         &kp T                                     &kp Y          &kp U  &kp I    &kp O      &kp P
-&mt LCTRL A       &kp S   &kp D      &lt 2 F       &kp G         &mo 1          &mo 6        &kp H          &kp J  &lt 5 K  &kp L      &kp ENTER
+&kp Q               &kp W   &kp E      &kp R         &kp T                                     &kp Y          &kp U  &kp I    &kp O      &kp P
+&mt LCTRL A         &kp S   &kp D      &lt 2 F       &kp G         &mo 1          &mo 6        &kp H          &kp J  &lt 5 K  &kp L      &kp ENTER
 &z_mt LEFT_SHIFT Z  &kp X   &kp C      &kp V         &kp B         &trans         &trans       &kp SEMICOLON  &kp N  &kp M    &kp COMMA  &mt RIGHT_SHIFT PERIOD
-&kp LEFT_SHIFT    &trans  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE      &lt 2 MINUS  &lt 3 SPACE                               &kp ESC
+&kp LEFT_SHIFT      &trans  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE      &lt 2 MINUS  &lt 3 SPACE                               &kp ESC
             >;
         };
 
