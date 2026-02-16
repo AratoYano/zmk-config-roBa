@@ -5,9 +5,6 @@
 
 /* &mt や &lt のグローバル設定は、このように一番外側に書きます */
 /* キーマップのトップレベル（一番外側）に追加 */
-&automouse_prio {
-    exit-delay-ms = <50>;
-    };
 &mt {
     flavor = "tap-preferred";
     tapping-term-ms = <220>;
@@ -24,6 +21,8 @@
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <5>;
+    /* Input Processorを使用して、レイヤー維持時間を50msに上書きする */
+    input-processors = <&zip_temp_layer 4 50>; 
 };
 
 / {
