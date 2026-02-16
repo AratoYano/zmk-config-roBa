@@ -4,7 +4,10 @@
 #include <dt-bindings/zmk/pointing.h>
 
 /* &mt や &lt のグローバル設定は、このように一番外側に書きます */
-
+/* キーマップのトップレベル（一番外側）に追加 */
+&automouse_prio {
+    exit-delay-ms = <50>;
+    };
 &mt {
     flavor = "tap-preferred";
     tapping-term-ms = <220>;
@@ -21,8 +24,6 @@
 &trackball {
     automouse-layer = <4>;
     scroll-layers = <5>;
-    /* ボールを離してから通常レイヤーに戻るまでの時間を短く設定（例：50ms） */
-    exit-delay-ms = <50>;
 };
 
 / {
