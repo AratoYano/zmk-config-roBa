@@ -137,21 +137,16 @@
             compatible = "zmk,behavior-hold-tap";
             label = "Z_MOD_TAP";
             #binding-cells = <2>;
-            /* 「後出しShift」を拾うため、割り込み優先に変更 */
-            flavor = "tap-unless-interrupted"; 
-            /* タイピングを守るため、判定時間は「250ms」と長めに設定 */
-            tapping-term-ms = <250>; 
+            /* 「ホールド」を優先するフレーバーに変更。これが後出しShiftに効きます */
+            flavor = "hold-preferred"; 
+            /* 判定時間を「300ms」とかなり長めに設定。
+               これにより、高速タイピング中のZは「タップ」として扱われやすくなります */
+            tapping-term-ms = <300>; 
             quick-tap-ms = <150>;
-            /* 右手側のキー位置を「トリガー」に指定。
-               これにより、Illustratorでマウス（右手側）を動かした瞬間にShiftを確定させます */
-            hold-trigger-key-positions = <
-                5 6 7 8 9
-                15 16 17 18 19
-                25 26 27 28 29
-                35 36 37 38 39
-                40 41 42 43 44
-            >;
-            hold-trigger-on-release;
+            /* マウスボタンのトリガーは残しつつ、300msの猶予でタイピングを守ります */
+            hold-trigger-key-positions = <40 41>; 
+            /* 判定に迷った時、離した瞬間に必ずzを出す。タイピングミスの救世主です */
+            retro-tap;
             bindings = <&kp>, <&kp>;
         };
     };
