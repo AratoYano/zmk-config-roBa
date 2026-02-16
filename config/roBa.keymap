@@ -148,9 +148,9 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            quick-tap-ms = <0>; 
-            /* プロパティ名が正しいか再確認しました */
-            global-quick-tap-ms = <150>; 
+            quick-tap-ms = <150>; 
+            /* 前のキー入力から150ms以内は強制的にタップ(z)にする設定 */
+            require-prior-idle-ms = <150>; 
             bindings = <&kp>, <&kp>;
         };
     };
