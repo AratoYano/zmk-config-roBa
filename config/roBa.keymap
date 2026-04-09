@@ -29,13 +29,13 @@
         compatible = "zmk,combos";
         timeout-ms = <30>;
 
-        tab {
-            bindings = <&kp TAB>;
+        window_right {
+            bindings = <&kp LC(RIGHT_ARROW)>;
             key-positions = <12 13>;
         };
 
-        shift_tab {
-            bindings = <&kp LS(TAB)>;
+        window_left {
+            bindings = <&kp LC(LEFT_ARROW)>;
             key-positions = <12 11>;
         };
 
@@ -139,6 +139,17 @@
             bindings = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES &kp LEFT_ARROW>;
             label = "MY_KAKKO3";
         };
+
+        window_slide2: window_slide2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LA(LC(LG(LEFT_ARROW)))>,
+                <&macro_wait_time 50>,
+                <&kp LC(LA(R))>;
+
+            label = "WINDOW_SLIDE2";
+        };
     };
 
     behaviors {
@@ -211,10 +222,10 @@
 
         ARROW {
             bindings = <
-&kp ESCAPE         &kp LG(NUMBER_2)      &kp LG(NUMBER_3)       &kp LG(N7)        &kp LG(LS(NUMBER_4))                                          &kp LC(LA(RET))  &trans                  &kp UP_ARROW    &kp LG(NUMBER_0)         &kp BACKSPACE
-&kp TAB            &kp LG(LA(NUMBER_2))  &kp LA(LG(NUMBER_3))   &kp LG(LA(N7))    &kp LS(LG(NUMBER_5))  &trans      &kp LA(LC(LG(LEFT_ARROW)))  &kp LG(EQUAL)    &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp C_VOL_UP
-&kp LC(LA(LG(F)))  &trans                &kp LS(LA(LC(LG(C))))  &kp LG(LS(LBKT))  &kp LS(LG(RBKT))      &trans      &window_slide               &kp LG(MINUS)    &kp LA(LC(LEFT_ARROW))  &kp LA(LC(R))   &kp LA(LC(RIGHT_ARROW))  &kp C_VOL_DN
-&trans             &trans                &trans                 &trans            &trans                &trans      &trans                      &trans                                                                            &trans
+&kp ESCAPE         &kp LG(NUMBER_2)      &kp LG(NUMBER_3)       &kp LG(N7)        &kp LG(LS(NUMBER_4))                              &kp LC(LA(RET))  &trans                  &kp UP_ARROW    &kp LG(NUMBER_0)         &kp BACKSPACE
+&kp TAB            &kp LG(LA(NUMBER_2))  &kp LA(LG(NUMBER_3))   &kp LG(LA(N7))    &kp LS(LG(NUMBER_5))  &trans      &window_slide2  &kp LG(EQUAL)    &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp C_VOL_UP
+&kp LC(LA(LG(F)))  &trans                &kp LS(LA(LC(LG(C))))  &kp LG(LS(LBKT))  &kp LS(LG(RBKT))      &trans      &window_slide   &kp LG(MINUS)    &kp LA(LC(LEFT_ARROW))  &kp LA(LC(R))   &kp LA(LC(RIGHT_ARROW))  &kp C_VOL_DN
+&trans             &trans                &trans                 &trans            &trans                &trans      &trans          &trans                                                                            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
