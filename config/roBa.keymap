@@ -83,16 +83,6 @@
             key-positions = <19 18>;
         };
 
-        window_right {
-            bindings = <&kp LC(RIGHT_ARROW)>;
-            key-positions = <12 13>;
-        };
-
-        window_left {
-            bindings = <&kp LC(LEFT_ARROW)>;
-            key-positions = <12 11>;
-        };
-
         mission_control {
             bindings = <&kp LC(UP_ARROW)>;
             key-positions = <2 3>;
