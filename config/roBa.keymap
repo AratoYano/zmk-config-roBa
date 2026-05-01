@@ -82,6 +82,31 @@
             bindings = <&kp LANGUAGE_1>;
             key-positions = <19 18>;
         };
+
+        window_right {
+            bindings = <&kp LC(RIGHT_ARROW)>;
+            key-positions = <12 13>;
+        };
+
+        window_left {
+            bindings = <&kp LC(LEFT_ARROW)>;
+            key-positions = <12 11>;
+        };
+
+        mission_control {
+            bindings = <&kp LC(UP_ARROW)>;
+            key-positions = <2 3>;
+        };
+
+        app_window {
+            bindings = <&kp LC(DOWN_ARROW)>;
+            key-positions = <24 25>;
+        };
+
+        combo_window_switcher {
+            bindings = <&alt_tab_stay>;
+            key-positions = <1 2>;
+        };
     };
 
     macros {
@@ -150,6 +175,35 @@
 
             label = "WINDOW_SLIDE2";
         };
+
+        alt_tab_stay: alt_tab_stay {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LEFT_ALT>;
+
+            label = "ALT_TAB_STAY";
+        };
+
+        Raycast: Raycast {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_ALT &kp LEFT_WIN>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LEFT_ALT &kp LEFT_GUI>;
+
+            label = "RAYCAST";
+        };
     };
 
     behaviors {
@@ -213,8 +267,8 @@
 
         NUM {
             bindings = <
-&kp EXCLAMATION                  &kp AT_SIGN           &kp HASH              &kp BSLH              &kp PERCENT                                              &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_EQUAL
-&kp CARET                        &kp AMPERSAND         &kp ASTERISK          &kp LC(LEFT_ARROW)    &kp LC(RIGHT_ARROW)   &trans      &kp LEFT_PARENTHESIS   &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_DIVIDE
+&kp EXCLAMATION                  &kp AT_SIGN           &kp HASH              &kp LG(LS(NUMBER_4))  &kp LG(LS(N5))                                           &kp KP_MULTIPLY  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_EQUAL
+&kp CARET                        &kp SLASH             &kp PERCENT           &kp AMPERSAND         &kp LC(F12)           &trans      &kp LEFT_PARENTHESIS   &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_DIVIDE
 &mt LEFT_SHIFT LA(LG(NUMBER_1))  &kp LA(LG(NUMBER_2))  &kp LA(LG(NUMBER_3))  &kp LA(LG(NUMBER_4))  &kp LA(LG(NUMBER_6))  &trans      &kp RIGHT_PARENTHESIS  &kp KP_MINUS     &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp DOT
 &trans                           &trans                &trans                &trans                &trans                &trans      &myCOMMA               &kp KP_NUMBER_0                                                     &trans
             >;
@@ -222,10 +276,10 @@
 
         ARROW {
             bindings = <
-&kp ESCAPE         &kp LG(NUMBER_2)      &kp LG(NUMBER_3)       &kp LG(N7)        &kp LG(LS(NUMBER_4))                              &kp LC(LA(RET))  &trans                  &kp UP_ARROW    &kp LG(NUMBER_0)         &kp BACKSPACE
-&kp TAB            &kp LG(LA(NUMBER_2))  &kp LA(LG(NUMBER_3))   &kp LG(LA(N7))    &kp LS(LG(NUMBER_5))  &trans      &window_slide2  &kp LG(EQUAL)    &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp C_VOL_UP
-&kp LC(LA(LG(F)))  &trans                &kp LS(LA(LC(LG(C))))  &kp LG(LS(LBKT))  &kp LS(LG(RBKT))      &trans      &window_slide   &kp LG(MINUS)    &kp LA(LC(LEFT_ARROW))  &kp LA(LC(R))   &kp LA(LC(RIGHT_ARROW))  &kp C_VOL_DN
-&trans             &trans                &trans                 &trans            &trans                &trans      &trans          &trans                                                                            &trans
+&kp ESCAPE         &kp LG(NUMBER_2)      &kp LG(NUMBER_3)       &kp LG(N7)      &kp LG(LS(LEFT_BRACKET))                               &kp LC(LA(RET))  &trans                  &kp UP_ARROW    &kp LG(NUMBER_0)         &kp BACKSPACE
+&kp TAB            &kp LG(LA(NUMBER_2))  &kp LA(LG(NUMBER_3))   &kp LG(LA(N7))  &kp LS(LG(RIGHT_BRACKET))  &trans      &window_slide2  &kp LG(EQUAL)    &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp C_VOL_UP
+&kp LC(LA(LG(F)))  &trans                &kp LS(LA(LC(LG(C))))  &kp LG(LBKT)    &kp LG(RBKT)               &trans      &window_slide   &kp LG(MINUS)    &kp LA(LC(LEFT_ARROW))  &kp LA(LC(R))   &kp LA(LC(RIGHT_ARROW))  &kp C_VOL_DN
+&trans             &trans                &trans                 &trans          &Raycast                   &trans      &trans          &trans                                                                            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
