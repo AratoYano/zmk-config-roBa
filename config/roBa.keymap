@@ -137,21 +137,21 @@
         myKakko1: myKakko1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT_ARROW>;
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS>;
             label = "MYKAKKO1";
         };
 
         myKakko2: myKakko2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_ARROW>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET>;
             label = "MYKAKKO2";
         };
 
         myKakko3: my_kakko3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES &kp LEFT_ARROW>;
+            bindings = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES>;
             label = "MY_KAKKO3";
         };
 
