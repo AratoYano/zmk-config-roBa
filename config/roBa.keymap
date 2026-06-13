@@ -40,7 +40,7 @@
         };
 
         double_quotation {
-            bindings = <&myKakko3>;
+            bindings = <&kp LG(BACKSPACE)>;
             key-positions = <8 9>;
         };
 
@@ -81,21 +81,6 @@
         lang1 {
             bindings = <&kp LANGUAGE_1>;
             key-positions = <19 18>;
-        };
-
-        mission_control {
-            bindings = <&kp LC(UP_ARROW)>;
-            key-positions = <2 3>;
-        };
-
-        app_window {
-            bindings = <&kp LC(DOWN_ARROW)>;
-            key-positions = <24 25>;
-        };
-
-        combo_window_switcher {
-            bindings = <&alt_tab_stay>;
-            key-positions = <1 2>;
         };
     };
 
