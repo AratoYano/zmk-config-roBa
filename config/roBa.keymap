@@ -40,7 +40,7 @@
         };
 
         double_quotation {
-            bindings = <&kp LG(BACKSPACE)>;
+            bindings = <&kp BACKSPACE>;
             key-positions = <8 9>;
         };
 
