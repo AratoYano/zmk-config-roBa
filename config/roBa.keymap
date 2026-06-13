@@ -251,9 +251,9 @@
 
         ARROW {
             bindings = <
-&kp ESCAPE         &kp LG(NUMBER_2)      &kp LG(NUMBER_3)       &kp LG(N7)      &kp LG(LS(LEFT_BRACKET))                               &kp LC(LA(RET))  &trans                  &kp UP_ARROW    &kp LG(NUMBER_0)         &kp BACKSPACE
-&kp TAB            &kp LG(LA(NUMBER_2))  &kp LA(LG(NUMBER_3))   &kp LG(LA(N7))  &kp LS(LG(RIGHT_BRACKET))  &trans      &window_slide2  &kp LG(EQUAL)    &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp C_VOL_UP
-&kp LC(LA(LG(F)))  &trans                &kp LS(LA(LC(LG(C))))  &kp LG(LBKT)    &kp LG(RBKT)               &trans      &window_slide   &kp LG(MINUS)    &kp LA(LC(LEFT_ARROW))  &kp LA(LC(R))   &kp LA(LC(RIGHT_ARROW))  &kp C_VOL_DN
+&kp ESCAPE         &kp LG(NUMBER_2)      &kp LG(NUMBER_3)       &kp LG(N7)      &kp LG(LS(LEFT_BRACKET))                               &kp LC(LA(RET))  &kp LC(LA(UP_ARROW))    &kp UP_ARROW    &kp LG(NUMBER_0)         &kp BACKSPACE
+&kp TAB            &kp LG(LA(NUMBER_2))  &kp LA(LG(NUMBER_3))   &kp LG(LA(N7))  &kp LS(LG(RIGHT_BRACKET))  &trans      &window_slide2  &kp LG(EQUAL)    &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp LEFT_BRACKET
+&kp LC(LA(LG(F)))  &trans                &kp LS(LA(LC(LG(C))))  &kp LG(LBKT)    &kp LG(RBKT)               &trans      &window_slide   &kp LG(MINUS)    &kp LA(LC(LEFT_ARROW))  &kp LA(LC(R))   &kp LA(LC(RIGHT_ARROW))  &kp RIGHT_BRACKET
 &trans             &trans                &trans                 &trans          &Raycast                   &trans      &trans          &trans                                                                            &trans
             >;
 
